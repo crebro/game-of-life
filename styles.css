@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins';
+  font-weight: bold;
+  font-size: 20px;
+}
+
+body {
+  overflow: hidden;
+}
+
+.control-panel {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  width: 100vw;
+  padding: 10px;
+  height: 10vh;
+  color: black;
+  background-color: gray;
+}
+
+.input-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
