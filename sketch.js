@@ -4,7 +4,7 @@ let rowNums;
 let colNums;
 let gridWidth;
 let gridHeight;
-let squareSize = 5;
+let squareSize = 20;
 let simulationBegun = false;
 let framesPerSecond = 50;
 let p5Frames = 60;
@@ -14,6 +14,7 @@ let originalSquareSize = squareSize;
 
 
 function initializeGrid(base) {
+    grid = [];
     for (let i = 0; i < rowNums; i++) {
         grid.push([]);
         for (let j = 0; j < colNums; j++) {
@@ -26,6 +27,13 @@ function initializeGrid(base) {
     }
 }
 
+async function loadTemplate(templateUrl) {
+    const response = await fetch(templateUrl);
+    const data = await response.json();
+    initializeGrid(data);
+    return data;
+}
+
 function setup() {
 
     rowNums = Math.floor(windowHeight / squareSize);
@@ -33,15 +41,20 @@ function setup() {
     gridHeight = rowNums * squareSize;
     gridWidth = colNums * squareSize;
 
-    createCanvas(gridWidth, gridHeight);
-    // initializeGrid();
-    initializeGrid();
+    
 
     const controlPanel = document.createElement('div', );
 
     controlPanel.innerHTML = `
-      <div class="input-item"> <div>Frames Per Second:</div> &nbsp; <input type="range" min="1" max="100" id="frames-per-second-input"></div>
-      <div class="input-item"> <div>Square Size: </div> &nbsp; <input type="range" min="1" max="100" id="square-size-input" value="100"></div>
+      <div class="input-panel-1">
+        <div class="input-item"> <div>Frames Per Second:</div> &nbsp; <input type="range" min="1" max="100" id="frames-per-second-input"></div>
+        <div class="input-item"> <div>Square Size: </div> &nbsp; <input type="range" min="1" max="100" id="square-size-input" value="100"></div>
+      </div>
+      <div> 
+        <div> Load Prebuilt maps </div>
+        <button class="button" onclick="loadTemplate('/templates/gosperglidergun.json');"> Gosper Glider Gun </button>
+        <button class="button" onclick="loadTemplate('/templates/diamond.json');"> Diamond </button>
+      </div>
     `;
     controlPanel.classList.add('control-panel');
 
@@ -54,6 +67,10 @@ function setup() {
     document.getElementById('square-size-input').addEventListener('change', (e) => {
         squareSize = originalSquareSize * ( 2 - e.currentTarget.value / 100 ) ;
     })
+
+    createCanvas(gridWidth, gridHeight);
+    initializeGrid();
+
 }
 
 function draw() {

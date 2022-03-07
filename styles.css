@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 * {
   padding: 0;
@@ -19,13 +19,30 @@ body {
   z-index: 100;
   width: 100vw;
   padding: 10px;
-  height: 10vh;
-  color: black;
+  height: 15vh;
+  color: white;
   background-color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .input-item {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+.input-panel-1 {
+  width: 350px;
+}
+
+.button {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  background-color: #3279a8;
+  color: white;
+  border-radius: 5px;
 }
