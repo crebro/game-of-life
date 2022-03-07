@@ -52,8 +52,8 @@ function setup() {
       </div>
       <div> 
         <div> Load Prebuilt maps </div>
-        <button class="button" onclick="loadTemplate('/templates/gosperglidergun.json');"> Gosper Glider Gun </button>
-        <button class="button" onclick="loadTemplate('/templates/diamond.json');"> Diamond </button>
+        <button class="button" onclick="loadTemplate('templates/gosperglidergun.json');"> Gosper Glider Gun </button>
+        <button class="button" onclick="loadTemplate('templates/diamond.json');"> Diamond </button>
       </div>
     `;
     controlPanel.classList.add('control-panel');
