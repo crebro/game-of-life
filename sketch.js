@@ -11,7 +11,7 @@ let p5Frames = 60;
 let frames = framesPerSecond * 60;
 let lastClickedSquare = {row: Number.POSITIVE_INFINITY, col: Number.NEGATIVE_INFINITY};
 let originalSquareSize = squareSize;
-
+let mouseClicking = false;
 
 function initializeGrid(base) {
     grid = [];
@@ -68,7 +68,13 @@ function setup() {
         squareSize = originalSquareSize * ( 2 - e.currentTarget.value / 100 ) ;
     })
 
-    createCanvas(gridWidth, gridHeight);
+    const canvas = createCanvas(gridWidth, gridHeight);
+    // canvas.addEventListener('mousedown', () => {
+    //     mouseClickAction();
+    // })
+    canvas.mouseReleased(() => mouseClicking = false);
+    canvas.mousePressed(() => mouseClicking = true);
+    // canvas.mousemove(mouseClickAction);
     initializeGrid();
 
 }
@@ -101,6 +107,10 @@ function draw() {
         }
         frames = 0;
     }
+
+    if (mouseClicking && mouseIsPressed) {
+        mouseClickAction();
+    }
 }
 
 function mouseClickAction() {
@@ -116,13 +126,13 @@ function mouseClickAction() {
     }
 }
 
-function mouseClicked() {
-    mouseClickAction();
-}
+// function mouseClicked() {
+//     mouseClickAction();
+// }
 
-function mouseDragged() {
-    mouseClickAction();
-}
+// function mouseDragged() {
+//     mouseClickAction();
+// }
 
 function keyPressed() {
     if (keyCode === 32) {
