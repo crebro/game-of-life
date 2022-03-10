@@ -13,6 +13,7 @@ let lastClickedSquare = {row: Number.POSITIVE_INFINITY, col: Number.NEGATIVE_INF
 let originalSquareSize = squareSize;
 let mouseClicking = false;
 let simulationStatusElement = document.getElementById('simulation-status');
+let howItWorksModal = document.getElementById('howItWorks');
 
 function initializeGrid(base) {
     grid = [];
@@ -26,6 +27,16 @@ function initializeGrid(base) {
             }
         }
     }
+}
+
+function toggleHowItWorksModal() {
+    if (howItWorksModal.classList.contains('hidden')) {
+        howItWorksModal.classList.remove('hidden');
+        howItWorksModal.classList.add('onCentreScreen');
+        return;
+    }
+    howItWorksModal.classList.remove('onCentreScreen');
+    howItWorksModal.classList.add('hidden');
 }
 
 async function loadTemplate(templateUrl) {
@@ -56,6 +67,10 @@ function setup() {
         <button class="button" onclick="loadTemplate('templates/gosperglidergun.json');"> Gosper Glider Gun </button>
         <button class="button" onclick="loadTemplate('templates/diamond.json');"> Diamond </button>
       </div>
+      <button onclick="toggleHowItWorksModal()" class="button">
+        How it works
+      </button>
+      <div>
     `;
     controlPanel.classList.add('control-panel');
 

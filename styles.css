@@ -64,3 +64,33 @@ body {
   color: white;
   background-color: rgb(245, 11, 42);
 }
+
+.modal {
+  top: 0;
+  bottom: 0;
+  transition-duration: 200ms !important;
+  transition: all;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-contents {
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+.onCentreScreen {
+  display: flex;
+}
+
+li::before {
+  content: '->';
+}
