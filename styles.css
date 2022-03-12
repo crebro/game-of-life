@@ -5,7 +5,6 @@
   margin: 0;
   font-family: 'Poppins';
   font-weight: bold;
-  font-size: 20px;
 }
 
 body {
@@ -75,12 +74,13 @@ body {
   position: absolute;
   align-items: center;
   justify-content: center;
+  box-shadow: 10px 10px;
 }
 
 .modal-contents {
   background-color: white;
   border-radius: 5px;
-  padding: 10px;
+  padding: 20px;
 }
 
 .hidden {
@@ -91,6 +91,6 @@ body {
   display: flex;
 }
 
-li::before {
-  content: '->';
+.text-sm {
+  font-size: 10px;
 }
